@@ -1,98 +1,92 @@
-# 🧑‍💼 Employee Management System (Spring Boot)
+# Employee Management REST API
 
-A RESTful API for managing employee records, built with **Spring Boot**, **Spring Data JPA**, **Spring Security**, and integrated with a **PostgreSQL** database. It also features Swagger UI documentation and is deployed on **Render** using Docker.
-
-## 🚀 Live Demo
-
-👉 [Deployed App on Render](https://employeemanagement-yqgb.onrender.com/)  
-👉 Redirects to [Swagger UI](https://employeemanagement-yqgb.onrender.com/swagger-ui.html)
+This is a Spring Boot-based backend application that provides a RESTful API for managing employees. It supports CRUD operations, role-based access control, Docker containerization, PostgreSQL integration, and deployment to Render.
 
 ---
 
-## 📌 Features
+## Features
 
-- ✅ Create, Read, Update, Delete (CRUD) for employees
-- 🔐 Role-based authentication using Spring Security
-- 🔄 Global exception handling
-- 🧪 Unit & integration tests (JUnit + Mockito + MockMvc)
-- 🌐 API documentation using Swagger (OpenAPI)
-- 🐘 PostgreSQL integration with Docker
-- 📦 Containerized with Docker & Docker Compose
-- ☁️ Deployment on [Render](https://render.com/)
-
----
-
-## 📁 Tech Stack
-
-- **Backend:** Java, Spring Boot
-- **Database:** PostgreSQL (Dockerized)
-- **ORM:** Spring Data JPA, Hibernate
-- **Security:** Spring Security
-- **Testing:** JUnit 5, Mockito, MockMvc
-- **Documentation:** SpringDoc Swagger UI
-- **Deployment:** Docker, Docker Compose, Render
+- Create, read, update, delete employee records
+- Role-Based Authorization using Spring Security
+  - Admin: Full access (create/update/delete/view)
+  - User: Read-only access
+- Input validation and centralized exception handling
+- RESTful endpoints documented using Swagger UI
+- Dockerized using multi-stage build
+- PostgreSQL database hosted on Render
+- Deployed to Render Web Service
+- Unit and integration tests with JUnit, Mockito, and Spring Test
 
 ---
 
-## ⚙️ API Endpoints
+## Technologies Used
 
-Visit [Swagger UI](https://employeemanagement-yqgb.onrender.com/swagger-ui.html) for full API documentation.
-
-Example endpoints:
-- `GET /api/employees`
-- `GET /api/employees/{id}`
-- `POST /api/employees`
-- `PUT /api/employees/{id}`
-- `DELETE /api/employees/{id}`
+- Java 17
+- Spring Boot 3
+- Spring Data JPA
+- Spring Security
+- PostgreSQL
+- Docker & Docker Compose
+- JUnit 5
+- Mockito
+- Swagger (springdoc-openapi)
+- Render.com (deployment)
 
 ---
 
-## 📦 Running Locally
+## Getting Started Locally
 
-### 1. Clone the repository
+### 1. Clone the Repository
+
 ```bash
 git clone https://github.com/your-username/employeemanagement.git
 cd employeemanagement
-2. Start using Docker
-Make sure Docker is running on your system.
+2. Run with Docker
+Ensure Docker is running on your system.
 
 bash
 Copy
 Edit
 docker-compose up --build
-The backend will be available at http://localhost:8080/swagger-ui.html.
+Access Swagger UI at:
 
-🔐 Role-Based Authentication
-Admin can create/update/delete employees.
+bash
+Copy
+Edit
+http://localhost:8080/swagger-ui.html
+API Documentation
+Swagger UI will be available at:
 
-User can only view employee details.
+bash
+Copy
+Edit
+http://localhost:8080/swagger-ui.html
+You can test all endpoints including role-based access directly from there.
 
-Sample security config is set using WebSecurityConfigurerAdapter.
+Role-Based Authentication
+Admin Role:
 
----
+Create, Update, Delete, View Employees
 
-🧪 Testing
-Run all tests:
+User Role:
 
+View Employees only
+
+Authorization is configured via Spring Security with a custom SecurityConfig.
+
+Testing
+Run all tests using:
+
+bash
+Copy
+Edit
 mvn test
-Technologies used:
+Test Frameworks and Tools:
 
 @SpringBootTest
 
 @WebMvcTest
 
-@MockBean, @WithMockUser
+@MockBean
 
-🌍 Deployment
-The app is deployed to Render using a multi-stage Docker build with PostgreSQL DB hosted via Render's managed PostgreSQL service.
-
-Dockerized using:
-
-Dockerfile
-
-docker-compose.yml
----
-
-🙋‍♂️ Author
-Priyanshu Bagasi
-GitHub • LinkedIn
+@WithMockUser
