@@ -7,6 +7,8 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.security.test.context.support.WithMockUser;
+
 
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -21,6 +23,7 @@ public class EmployeeControllerTest {
     @MockBean
     private EmployeeService employeeService;
 
+    @WithMockUser(username = "admin", roles = {"USER", "ADMIN"})
     @Test
     public void testGetEmployeeById_shouldReturnWrappedApiResponse() throws Exception {
         EmployeeDto mockDto = new EmployeeDto(1L, "Akash", "IT", 50000);
@@ -28,7 +31,7 @@ public class EmployeeControllerTest {
         when(employeeService.getEmployeeById(1L)).thenReturn(mockDto);
 
         mockMvc.perform(get("/employees/1")
-                        .accept(MediaType.APPLICATION_JSON)) // Use `.accept`, not `.contentType` for GET
+                        .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.status").value("success"))
                 .andExpect(jsonPath("$.message").value("Employee fetched successfully"))
