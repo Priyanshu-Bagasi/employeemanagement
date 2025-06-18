@@ -1,10 +1,10 @@
-# Employee Management REST API
+# 👨‍💻 Employee Management REST API
 
 This is a Spring Boot-based backend application that provides a RESTful API for managing employees. It supports CRUD operations, role-based access control, Docker containerization, PostgreSQL integration, and deployment to Render.
 
 ---
 
-## Features
+##  🚀 Features
 
 - Create, read, update, delete employee records
 - Role-Based Authorization using Spring Security
@@ -19,7 +19,7 @@ This is a Spring Boot-based backend application that provides a RESTful API for 
 
 ---
 
-## Technologies Used
+## 📦 Technologies Used
 
 - Java 17
 - Spring Boot 3
@@ -34,16 +34,16 @@ This is a Spring Boot-based backend application that provides a RESTful API for 
 
 ---
 
-## Getting Started Locally
+## 🔧 Getting Started Locally
 
-### 1. Clone the Repository
+### 1️⃣ Clone the Repository
 
 ```bash
 git clone https://github.com/your-username/employeemanagement.git
 cd employeemanagement
 ```
 
-### 2. Run with Docker
+### 2️⃣ Run with Docker
 
 Ensure Docker is running on your system.
 
@@ -63,29 +63,41 @@ You can test all endpoints including role-based access directly from there.
 
 ---
 
-### Role-Based Authentication
+### 🔐 Role-Based Authentication
 
-Admin Role:
+👤 Admin Role:
 Create, Update, Delete, View Employees
 
-User Role:
+👥 User Role:
 View Employees only
 
 ---
 
-### Testing
+### 🧪 Testing
 Run all tests using:
 
 ```bash
 mvn test
 ```
 
-Test Frameworks and Tools:
+🔍 Test Frameworks and Tools:
 
-@SpringBootTest
-@WebMvcTest
-@MockBean
-@WithMockUser
+- @SpringBootTest
+- @WebMvcTest
+- @MockBean
+- @WithMockUser
+
+---
+
+### 🚢 Deployment
+The app is deployed to Render using:
+
+- Docker multi-stage build
+- PostgreSQL managed via Render’s dashboard
+
+### 🔧 Files used:
+- Dockerfile
+- docker-compose.yml
 
 ---
 
