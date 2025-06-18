@@ -41,52 +41,53 @@ This is a Spring Boot-based backend application that provides a RESTful API for 
 ```bash
 git clone https://github.com/your-username/employeemanagement.git
 cd employeemanagement
-2. Run with Docker
+```
+
+### 2. Run with Docker
+
 Ensure Docker is running on your system.
 
-bash
-Copy
-Edit
+```bash
 docker-compose up --build
-Access Swagger UI at:
+```
 
-bash
-Copy
-Edit
-http://localhost:8080/swagger-ui.html
-API Documentation
+---
+
+### API Documentation
 Swagger UI will be available at:
 
-bash
-Copy
-Edit
+```bash
 http://localhost:8080/swagger-ui.html
+```
 You can test all endpoints including role-based access directly from there.
 
-Role-Based Authentication
-Admin Role:
+---
 
+### Role-Based Authentication
+
+Admin Role:
 Create, Update, Delete, View Employees
 
 User Role:
-
 View Employees only
 
-Authorization is configured via Spring Security with a custom SecurityConfig.
+---
 
-Testing
+### Testing
 Run all tests using:
 
-bash
-Copy
-Edit
+```bash
 mvn test
+```
+
 Test Frameworks and Tools:
 
 @SpringBootTest
-
 @WebMvcTest
-
 @MockBean
-
 @WithMockUser
+
+---
+
+### Author
+Priyanshu Bagasi - https://github.com/Priyanshu-Bagasi
