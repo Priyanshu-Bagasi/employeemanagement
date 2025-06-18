@@ -1,14 +1,25 @@
-# Using official OpenJDK 17 image as base
-FROM openjdk:17-jdk-slim
+#Stage 1: Building the application
+FROM maven:3.9.6-eclipse-temurin-17 AS builder
 
-# Setting working directory inside container
 WORKDIR /app
 
-# Copying built JAR file into container
-COPY target/employeemanagement-0.0.1-SNAPSHOT.jar app.jar
+COPY pom.xml .
+COPY src ./src
 
-# Exposing the port on which the app runs
+# Build the application
+RUN mvn clean package -DskipTests
+
+# Stage 2: Running the application
+FROM openjdk:17-jdk-slim
+
+WORKDIR /app
+
+# Copy the JAR file from the builder stage
+COPY --from=builder /app/target/*.jar app.jar
+
+# Expose the application port
 EXPOSE 8080
 
-# Running the JAR
+# Run the application
 ENTRYPOINT ["java", "-jar", "app.jar"]
+
